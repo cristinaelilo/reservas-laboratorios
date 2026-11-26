@@ -1,184 +1,788 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
+/* Diseño del inicio de sesión LABU */
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+.lab-login {
+  display: grid;
+  grid-template-columns: 44% 56%;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #142238;
 }
 
-.hero {
-  position: relative;
+/* Sección izquierda */
 
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#center {
+.lab-presentacion {
+  background: #112942;
+  color: white;
+  padding: 50px 8.5% 24px;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
-}
-
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
   position: relative;
+  overflow: hidden;
+}
+
+.lab-presentacion::after {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border: 85px solid #ffffff06;
+  border-radius: 50%;
+  bottom: -160px;
+  right: -300px;
+  pointer-events: none;
+}
+
+.lab-marca {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.lab-marca svg {
+  width: 32px;
+  height: 32px;
+}
+
+.lab-marca b {
+  color: #7ad4ce;
+}
+
+.lab-presentacion-contenido {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  padding: 50px 0;
+}
+
+.lab-universidad {
+  color: #7ad4ce;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 24px;
+}
+
+.lab-presentacion h1 {
+  font-size: clamp(38px, 4.2vw, 72px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  margin: 0;
+  color: white;
+}
+
+.lab-presentacion h1 span {
+  color: #7ad4ce;
+}
+
+.lab-descripcion {
+  color: #c5d5e7;
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 30px 0 45px;
+}
+
+/* Tarjeta de gestión centralizada */
+
+.lab-beneficio {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 22px;
+  background: #ffffff0d;
+  border: 1px solid #ffffff20;
+  border-radius: 15px;
+}
+
+.lab-beneficio-icono {
+  color: #7ad4ce;
+}
+
+.lab-beneficio-icono svg {
+  width: 28px;
+  height: 28px;
+}
+
+.lab-beneficio h3 {
+  font-size: 18px;
+  margin: 0 0 10px;
+  color: white;
+}
+
+.lab-beneficio p {
+  color: #b8cde2;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.lab-footer {
+  color: #8da9c5;
+  font-size: 13px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Sección derecha */
+
+.lab-acceso {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 45px;
+  background: #ffffff;
+}
+
+.lab-formulario {
   width: 100%;
+  max-width: 590px;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
+.lab-bienvenida {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #142238;
+  margin: 0 0 22px;
+}
+
+.lab-formulario h2 {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin: 0 0 12px;
+  color: #142238;
+}
+
+.lab-subtitulo {
+  font-size: 16px;
+  color: #64748b;
+  margin: 0 0 35px;
+  line-height: 1.6;
+}
+
+/* Campos del formulario */
+
+.lab-formulario label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #142238;
+  margin-bottom: 10px;
+}
+
+.lab-formulario input {
+  display: block;
+  width: 100%;
+  min-height: 54px;
+  padding: 15px 17px;
+  border: 1px solid #d6deea;
+  border-radius: 11px;
+  background: white;
+  color: #142238;
+  font-size: 15px;
+  margin-bottom: 24px;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+.lab-formulario input::placeholder {
+  color: #8795ab;
+}
+
+.lab-formulario input:focus {
+  outline: none;
+  border-color: #1c3659;
+  box-shadow: 0 0 0 3px #1c365910;
+}
+
+/* Botón ingresar */
+
+.lab-ingresar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 54px;
+  padding: 15px;
+  background: #1c3659;
+  color: white;
+  border: none;
+  border-radius: 11px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.lab-ingresar:hover {
+  background: #112942;
+}
+
+.lab-ingresar svg {
+  width: 19px;
+  height: 19px;
+}
+
+.lab-ingresar:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Mensaje de error */
+
+.lab-error {
+  padding: 13px;
+  margin: 0 0 14px;
+  background: #fff0f1;
+  border: 1px solid #f5c9ce;
+  border-radius: 9px;
+  color: #c62828;
+  font-size: 13px;
+}
+
+/* Separador */
+
+.lab-separador {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 26px 0;
+  color: #8795ab;
+  font-size: 12px;
+  letter-spacing: 0.7px;
+}
+
+.lab-separador::before,
+.lab-separador::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #dde4ed;
+}
+
+/* Accesos de demostración */
+
+.lab-accesos-demo {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.lab-demo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 12px;
+  border: 1px solid #d6deea;
+  border-radius: 11px;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.lab-demo svg {
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+}
+
+.lab-demo strong {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.lab-demo small {
+  display: block;
+  font-size: 10px;
+  color: #8795ab;
+}
+
+.lab-demo-admin {
+  color: #1c3659;
+}
+
+.lab-demo-docente {
+  color: #008b80;
+}
+
+.lab-demo-estudiante {
+  color: #7624ee;
+}
+
+.lab-demo:hover {
+  background: #f3f6f9;
+  border-color: currentColor;
+}
+
+.lab-demo:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.mensaje-carga {
+  text-align: center;
+  padding: 30px;
+  color: #1c3659;
+}
+
+/* Adaptación a tablets */
+
+@media (max-width: 1100px) {
+  .lab-acceso {
+    padding: 30px;
   }
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+  .lab-demo {
+    padding: 12px 8px;
+    gap: 6px;
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+
+  .lab-demo strong {
+    font-size: 11px;
+  }
+}
+
+/* Adaptación a celulares */
+
+@media (max-width: 768px) {
+  .lab-login {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-presentacion {
+    padding: 28px 24px;
+  }
+
+  .lab-presentacion-contenido {
+    padding: 30px 0;
+  }
+
+  .lab-presentacion h1 {
+    font-size: 36px;
+  }
+
+  .lab-universidad {
+    font-size: 11px;
+  }
+
+  .lab-descripcion {
+    font-size: 14px;
+    margin: 20px 0;
+  }
+
+  .lab-beneficio {
+    padding: 15px;
+  }
+
+  .lab-footer {
+    font-size: 11px;
+  }
+
+  .lab-acceso {
+    padding: 35px 24px;
+  }
+
+  .lab-formulario h2 {
+    font-size: 32px;
+  }
+
+  .lab-accesos-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-demo {
+    padding: 14px;
+  }
+
+  .lab-demo strong {
+    font-size: 13px;
+  }
+}
+/* =================================
+   PANELES LABU
+   ================================= */
+
+.lab-panel {
+  display: flex;
+  min-height: 100vh;
+  background: #f3f6f9;
+  color: #142238;
+}
+
+/* Menu lateral */
+
+.lab-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background: #1c3659;
+  color: white;
+  padding: 24px 15px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.lab-sidebar-marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 26px;
+  font-weight: bold;
+  padding: 10px 12px 28px;
+  border-bottom: 1px solid #ffffff25;
+}
+
+.lab-sidebar-rol {
+  background: #354d6b;
+  border-radius: 12px;
+  padding: 18px;
+  margin: 22px 0;
+}
+
+.lab-sidebar-rol small {
+  display: block;
+  color: #b9c9dd;
+  font-size: 12px;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.lab-sidebar-rol strong {
+  font-size: 16px;
+}
+
+.lab-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lab-menu-item {
+  padding: 14px 18px;
+  border-radius: 9px;
+  color: #c4d3e5;
+  font-size: 15px;
+}
+
+.lab-menu-item:hover {
+  background: #354d6b;
+  color: white;
+}
+
+.lab-menu-activo {
+  background: #3b5270;
+  color: white;
+  font-weight: 600;
+}
+
+/* Cerrar sesion */
+
+.lab-cerrar-sesion {
+  margin-top: auto;
+  padding: 15px;
+  border: none;
+  background: transparent;
+  color: #c4d3e5;
+  text-align: left;
+  border-radius: 9px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.lab-cerrar-sesion:hover {
+  background: #354d6b;
+  color: white;
+}
+
+/* Contenido principal */
+
+.lab-panel-contenido {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Encabezado */
+
+.lab-panel-header {
+  background: white;
+  padding: 20px 35px;
+  min-height: 85px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid #dde4ed;
+  box-sizing: border-box;
+}
+
+.lab-panel-header h2 {
+  font-size: 17px;
+  margin: 0 0 5px;
+  color: #142238;
+}
+
+.lab-panel-header p {
+  font-size: 13px;
+  color: #8795ab;
+  margin: 0;
+}
+
+/* Perfil del usuario */
+
+.lab-perfil {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lab-avatar {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #1c3659;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+}
+
+.lab-perfil-datos strong {
+  display: block;
+  font-size: 14px;
+}
+
+.lab-perfil-datos small {
+  display: block;
+  color: #8795ab;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+/* Bienvenida */
+
+.lab-panel-main {
+  padding: 40px 35px;
+}
+
+.lab-saludo {
+  margin-bottom: 32px;
+}
+
+.lab-fecha {
+  color: #1c3659;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.lab-saludo h1 {
+  font-size: 38px;
+  margin: 10px 0;
+  color: #142238;
+}
+
+.lab-saludo-descripcion {
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Indicadores del administrador */
+
+.lab-indicadores {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.lab-indicador {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px;
+  background: white;
+  border: 1px solid #dde4ed;
+  border-radius: 15px;
+  box-shadow: 0 3px 12px #14223805;
+}
+
+.lab-indicador-icono {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  font-size: 25px;
+}
+
+.color-0 {
+  background: #e9f2ff;
+  color: #2563a9;
+}
+
+.color-1 {
+  background: #f0e9ff;
+  color: #7624ee;
+}
+
+.color-2 {
+  background: #fff3da;
+  color: #b76b00;
+}
+
+.color-3 {
+  background: #e4f5ef;
+  color: #008b68;
+}
+
+.lab-indicador strong {
+  font-size: 28px;
+}
+
+.lab-indicador p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* Solicitudes recientes */
+
+.lab-solicitudes {
+  background: white;
+  border: 1px solid #dde4ed;
+  border-radius: 15px;
+}
+
+.lab-solicitudes-header {
+  padding: 25px;
+  border-bottom: 1px solid #e8edf3;
+}
+
+.lab-solicitudes-header h2 {
+  font-size: 20px;
+  margin: 0 0 8px;
+}
+
+.lab-solicitudes-header p {
+  color: #8795ab;
+  font-size: 14px;
+  margin: 0;
+}
+
+.lab-solicitudes-vacio {
+  text-align: center;
+  padding: 65px 25px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Modulos del docente y estudiante */
+
+.lab-modulos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.lab-modulo {
+  background: white;
+  border: 1px solid #dde4ed;
+  border-radius: 15px;
+  padding: 25px;
+  transition: 0.2s;
+}
+
+.lab-modulo:hover {
+  border-color: #b9c9dd;
+  box-shadow: 0 4px 12px #14223808;
+}
+
+.lab-modulo h3 {
+  font-size: 17px;
+  margin: 0 0 12px;
+  color: #142238;
+}
+
+.lab-modulo p {
+  color: #64748b;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Adaptacion a tablets */
+
+@media (max-width: 1200px) {
+  .lab-indicadores {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lab-modulos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Adaptacion a celulares */
+
+@media (max-width: 768px) {
+  .lab-panel {
+    flex-direction: column;
+  }
+
+  .lab-sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    padding: 18px;
+  }
+
+  .lab-sidebar-nav {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .lab-menu-item {
+    flex-shrink: 0;
+    font-size: 13px;
+  }
+
+  .lab-cerrar-sesion {
+    margin-top: 15px;
+  }
+
+  .lab-panel-header {
+    padding: 15px;
+  }
+
+  .lab-perfil-datos {
+    display: none;
+  }
+
+  .lab-panel-main {
+    padding: 25px 16px;
+  }
+
+  .lab-saludo h1 {
+    font-size: 28px;
+  }
+
+  .lab-indicadores,
+  .lab-modulos {
+    grid-template-columns: 1fr;
   }
 }
