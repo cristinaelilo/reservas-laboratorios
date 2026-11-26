@@ -3,6 +3,8 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const db = require('../db/connection');
+const verificarToken = require('../middlewares/auth.middleware');
+const permitirRoles = require('../middlewares/roles.middleware');
 
 const router = express.Router();
 
@@ -79,5 +81,48 @@ router.post('/login', (req, res) => {
     });
   }
 });
+
+// Consultar el usuario que inició sesión
+router.get('/me', verificarToken, (req, res) => {
+  res.json({
+    usuario: req.usuario
+  });
+});
+
+// Comprobar acceso del administrador
+router.get(
+  '/admin',
+  verificarToken,
+  permitirRoles('ADMIN'),
+  (req, res) => {
+    res.json({
+      mensaje: 'Acceso permitido al administrador'
+    });
+  }
+);
+
+// Comprobar acceso del docente
+router.get(
+  '/docente',
+  verificarToken,
+  permitirRoles('DOCENTE'),
+  (req, res) => {
+    res.json({
+      mensaje: 'Acceso permitido al docente'
+    });
+  }
+);
+
+// Comprobar acceso del estudiante
+router.get(
+  '/estudiante',
+  verificarToken,
+  permitirRoles('ESTUDIANTE'),
+  (req, res) => {
+    res.json({
+      mensaje: 'Acceso permitido al estudiante'
+    });
+  }
+);
 
 module.exports = router;
