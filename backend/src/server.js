@@ -4,6 +4,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const authRoutes = require('./routes/auth.routes');
+const laboratoriosRoutes = require('./routes/laboratorios.routes');
 
 const app = express();
 
@@ -18,6 +19,9 @@ app.get('/api/health', (req, res) => {
 
 // Rutas de autenticación
 app.use('/api/auth', authRoutes);
+
+// Rutas de laboratorios
+app.use('/api/laboratorios', laboratoriosRoutes);
 
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
