@@ -1,10 +1,10 @@
-
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
 const authRoutes = require('./routes/auth.routes');
 const laboratoriosRoutes = require('./routes/laboratorios.routes');
+const equiposRoutes = require('./routes/equipos.routes');
 
 const app = express();
 
@@ -22,6 +22,9 @@ app.use('/api/auth', authRoutes);
 
 // Rutas de laboratorios
 app.use('/api/laboratorios', laboratoriosRoutes);
+
+// Rutas de equipos
+app.use('/api/equipos', equiposRoutes);
 
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
