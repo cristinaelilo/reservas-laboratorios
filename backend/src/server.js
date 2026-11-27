@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const authRoutes = require('./routes/auth.routes');
 const laboratoriosRoutes = require('./routes/laboratorios.routes');
+const usuariosRoutes = require('./routes/usuarios.routes');
 
 const app = express();
 
@@ -22,6 +23,9 @@ app.use('/api/auth', authRoutes);
 
 // Rutas de laboratorios
 app.use('/api/laboratorios', laboratoriosRoutes);
+
+// Rutas de usuarios
+app.use('/api/usuarios', usuariosRoutes);
 
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
