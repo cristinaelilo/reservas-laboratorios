@@ -1,0 +1,246 @@
+.usuarios-page {
+    padding: 2rem 2.5rem;
+    background-color: #f4f6f9;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    color: #0f172a;
+    text-align: left;
+}
+
+.usuarios-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.usuarios-title {
+    margin: 0;
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.usuarios-subtitle {
+    margin: 0.35rem 0 0;
+    font-size: 0.95rem;
+    color: #64748b;
+}
+
+.usuarios-toolbar {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.usuarios-search,
+.usuarios-select {
+    padding: 0.6rem 0.9rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #ffffff;
+    font-size: 0.9rem;
+    color: #1e293b;
+}
+
+.usuarios-search {
+    flex: 1;
+    min-width: 240px;
+}
+
+.usuarios-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    overflow: hidden;
+}
+
+.usuario-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.15rem 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.usuario-row:last-child {
+    border-bottom: none;
+}
+
+.usuario-row.inactivo {
+    opacity: 0.6;
+}
+
+.usuario-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.usuario-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #153257;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    text-transform: uppercase;
+}
+
+.usuario-nombre {
+    font-weight: 600;
+    font-size: 0.98rem;
+    color: #0f172a;
+}
+
+.usuario-correo {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: 0.15rem;
+}
+
+.usuario-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+}
+
+.pill-rol {
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    background-color: #eef2f6;
+    color: #334155;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.pill-estado {
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.pill-activo {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.pill-inactivo {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.btn-labu {
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.btn-labu-primary {
+    background-color: #153257;
+    color: #ffffff;
+}
+
+.btn-labu-primary:hover {
+    background-color: #1e4373;
+}
+
+.btn-labu-ghost {
+    background-color: #f8fafc;
+    border-color: #e2e8f0;
+    color: #334155;
+    padding: 0.38rem 0.75rem;
+    font-size: 0.82rem;
+}
+
+.btn-labu-ghost:hover {
+    background-color: #e2e8f0;
+}
+
+.alerta-error {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.estado-vacio {
+    padding: 2rem;
+    text-align: center;
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+/* Modal */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 50;
+}
+
+.modal-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 430px;
+    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.15);
+}
+
+.modal-card h2 {
+    margin: 0 0 1.1rem;
+    font-size: 1.25rem;
+    color: #0f172a;
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 0.95rem;
+}
+
+.form-grupo label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+.form-grupo input,
+.form-grupo select {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.92rem;
+}
+
+.modal-acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+}
