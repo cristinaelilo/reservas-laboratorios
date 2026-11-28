@@ -1,18 +1,10 @@
 import PanelBase from '../components/PanelBase';
+import { opcionesAdmin } from './menuAdmin';
 
 export default function AdminLayout() {
 
-  const opciones = [
-    'Laboratorios',
-    'Reservas',
-    'Usuarios',
-    'Equipos',
-    'Bloqueos',
-    'Incidencias',
-    'Notificaciones',
-    'Reportes'
-  ];
-
+  const opciones = opcionesAdmin;
+  
   const indicadores = [
     'Laboratorios disponibles',
     'Reservas totales',
