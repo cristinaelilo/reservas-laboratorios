@@ -13,6 +13,7 @@ import Login from './pages/Login';
 import AdminLayout from './layouts/AdminLayout';
 import DocenteLayout from './layouts/DocenteLayout';
 import EstudianteLayout from './layouts/EstudianteLayout';
+import Laboratorios from './pages/admin/Laboratorios';
 
 import './App.css';
 
@@ -37,6 +38,15 @@ function App() {
             element={
               <ProtectedRoute roles={['ADMIN']}>
                 <AdminLayout />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/admin/laboratorios"
+            element={
+              <ProtectedRoute roles={['ADMIN']}>
+                <Laboratorios />
               </ProtectedRoute>
             }
           />

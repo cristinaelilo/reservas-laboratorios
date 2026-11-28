@@ -1,0 +1,254 @@
+/* Pantalla de laboratorios del Administrador (prefijo labs- para no chocar con otros estilos) */
+
+.labs-pagina {
+  max-width: 1230px;
+  margin: 0 auto;
+  padding: 8px 0 40px;
+}
+
+.labs-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.labs-encabezado h1 {
+  margin: 0 0 6px;
+  font-size: 2rem;
+  line-height: 1.15;
+  color: #12233f;
+}
+
+.labs-encabezado p {
+  margin: 0;
+  color: #6b7689;
+}
+
+/* Botones */
+.labs-boton {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 11px 18px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.labs-boton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.labs-boton:focus-visible,
+.labs-buscador input:focus-visible,
+.labs-campo input:focus-visible,
+.labs-campo select:focus-visible {
+  outline: 3px solid #93b4e6;
+  outline-offset: 2px;
+}
+
+.labs-boton-primario { background: #1e3a5f; color: #fff; }
+.labs-boton-primario:hover:not(:disabled) { background: #16304f; }
+.labs-boton-claro { background: #fff; color: #1f2a44; border-color: #d8dee9; }
+.labs-boton-claro:hover:not(:disabled) { background: #f3f5f9; }
+.labs-boton-peligro { background: #c62828; color: #fff; }
+.labs-boton-peligro:hover:not(:disabled) { background: #a81f1f; }
+
+.labs-boton-chico { padding: 8px 12px; font-size: 0.8rem; }
+
+.labs-boton-con-icono { display: inline-flex; align-items: center; gap: 8px; }
+
+.labs-boton-icono {
+  background: #fff;
+  color: #c62828;
+  border-color: #d8dee9;
+  display: inline-flex;
+  align-items: center;
+}
+.labs-boton-icono:hover { background: #fdeeee; }
+
+/* Avisos y mensajes */
+.labs-aviso {
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.labs-aviso-exito { background: #dcf5e9; color: #0a6b49; }
+.labs-aviso-error { background: #fde8e8; color: #a31c1c; }
+
+.labs-mensaje {
+  margin: 24px 0;
+  padding: 28px;
+  text-align: center;
+  color: #5b6577;
+  background: #fff;
+  border: 1px dashed #d8dee9;
+  border-radius: 14px;
+}
+.labs-mensaje-error { color: #a31c1c; border-color: #f2b8b8; }
+.labs-mensaje-error p { margin: 0 0 12px; }
+
+/* Buscador */
+.labs-buscador { position: relative; margin-bottom: 20px; max-width: 400px; }
+.labs-buscador-icono {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8892a6;
+  pointer-events: none;
+}
+.labs-buscador input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px 12px 42px;
+  font: inherit;
+  border: 1px solid #d8dee9;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.labs-solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Tarjetas */
+.labs-grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+.labs-tarjeta {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e3e8f0;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.labs-tarjeta-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.labs-icono,
+.labs-foto {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+}
+.labs-icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eceff5;
+  color: #1e3a5f;
+}
+.labs-foto { object-fit: cover; }
+
+.labs-insignia {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.labs-insignia-ok { background: #dcf5e9; color: #0a6b49; }
+.labs-insignia-off { background: #eceff5; color: #5b6577; }
+
+.labs-tarjeta h3 { margin: 0 0 4px; font-size: 1.05rem; color: #12233f; }
+.labs-ubicacion { margin: 0 0 14px; font-size: 0.85rem; color: #7b8598; }
+
+.labs-datos {
+  margin: 0;
+  padding: 14px 0;
+  border-top: 1px solid #eceff5;
+  border-bottom: 1px solid #eceff5;
+  flex: 1;
+}
+.labs-datos div + div { margin-top: 10px; }
+.labs-datos dt { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #8892a6; }
+.labs-datos dd { margin: 2px 0 0; font-size: 0.88rem; color: #1f2a44; }
+
+.labs-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+/* Ventanas (formulario y confirmación) */
+.labs-fondo {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(15, 23, 42, 0.55);
+}
+
+.labs-modal {
+  width: 100%;
+  max-width: 520px;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 24px;
+  background: #fff;
+  border-radius: 16px;
+}
+.labs-modal-chico { max-width: 420px; }
+.labs-modal h2 { margin: 0 0 16px; font-size: 1.3rem; color: #12233f; }
+.labs-modal-texto { margin: 0 0 16px; color: #4a5468; line-height: 1.5; }
+
+.labs-campo { margin-bottom: 14px; }
+.labs-campo label { display: block; margin-bottom: 6px; font-size: 0.85rem; font-weight: 600; color: #1f2a44; }
+.labs-campo input,
+.labs-campo select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 12px;
+  font: inherit;
+  border: 1px solid #d8dee9;
+  border-radius: 10px;
+  background: #fff;
+}
+.labs-campo input[aria-invalid='true'] { border-color: #c62828; }
+
+.labs-error-campo { margin: 6px 0 0; font-size: 0.8rem; color: #c62828; }
+.labs-error-servidor {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fde8e8;
+  color: #a31c1c;
+  font-size: 0.88rem;
+}
+
+.labs-modal-acciones { display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px; }
+
+/* Móvil */
+@media (max-width: 640px) {
+  .labs-encabezado h1 { font-size: 1.6rem; }
+  .labs-encabezado .labs-boton { width: 100%; }
+  .labs-buscador { max-width: none; }
+  .labs-grilla { grid-template-columns: 1fr; }
+  .labs-modal { padding: 18px; }
+  .labs-modal-acciones { flex-direction: column-reverse; }
+  .labs-modal-acciones .labs-boton { width: 100%; }
+}
