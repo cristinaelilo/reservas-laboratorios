@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-export default function PanelBase({ titulo, opciones, children }) {
+// opciones: texto (aún sin pantalla) u objeto { texto, ruta } (navega a esa ruta)
+// saludo: false oculta el bloque "Hola, ..." (útil en pantallas de gestión)
+export default function PanelBase({ titulo, opciones, saludo = true, children }) {
   const { usuario, logout } = useAuth();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const roles = {
     ADMIN: 'Administrador',
@@ -13,6 +16,7 @@ export default function PanelBase({ titulo, opciones, children }) {
   };
 
   const rol = roles[usuario.rol];
+  const inicio = `/${usuario.rol.toLowerCase()}`;
 
   const iniciales = usuario.nombre
     .split(' ')
@@ -31,6 +35,21 @@ export default function PanelBase({ titulo, opciones, children }) {
   function cerrarSesion() {
     logout();
     navigate('/login', { replace: true });
+  }
+
+  // Opción de menú que navega (div con rol de enlace para conservar los estilos del panel)
+  function ItemMenu({ ruta, activo, children: texto }) {
+    return (
+      <div
+        className={`lab-menu-item${activo ? ' lab-menu-activo' : ''}`}
+        role="link"
+        tabIndex={0}
+        onClick={() => navigate(ruta)}
+        onKeyDown={(e) => e.key === 'Enter' && navigate(ruta)}
+      >
+        {texto}
+      </div>
+    );
   }
 
   return (
@@ -65,15 +84,25 @@ export default function PanelBase({ titulo, opciones, children }) {
 
         <nav className="lab-sidebar-nav">
 
-          <div className="lab-menu-item lab-menu-activo">
+          <ItemMenu ruta={inicio} activo={pathname === inicio}>
             Panel general
-          </div>
+          </ItemMenu>
 
-          {opciones.map(opcion => (
-            <div className="lab-menu-item" key={opcion}>
-              {opcion}
-            </div>
-          ))}
+          {opciones.map(opcion =>
+            typeof opcion === 'string' ? (
+              <div className="lab-menu-item" key={opcion}>
+                {opcion}
+              </div>
+            ) : (
+              <ItemMenu
+                key={opcion.ruta}
+                ruta={opcion.ruta}
+                activo={pathname.startsWith(opcion.ruta)}
+              >
+                {opcion.texto}
+              </ItemMenu>
+            )
+          )}
 
         </nav>
 
@@ -114,19 +143,21 @@ export default function PanelBase({ titulo, opciones, children }) {
 
         <main className="lab-panel-main">
 
-          <section className="lab-saludo">
+          {saludo && (
+            <section className="lab-saludo">
 
-            <p className="lab-fecha">{fecha}</p>
+              <p className="lab-fecha">{fecha}</p>
 
-            <h1>
-              Hola, {usuario.nombre.split(' ')[0]}
-            </h1>
+              <h1>
+                Hola, {usuario.nombre.split(' ')[0]}
+              </h1>
 
-            <p className="lab-saludo-descripcion">
-              {titulo}
-            </p>
+              <p className="lab-saludo-descripcion">
+                {titulo}
+              </p>
 
-          </section>
+            </section>
+          )}
 
           {children}
 
